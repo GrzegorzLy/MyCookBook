@@ -15,6 +15,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ISqlModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\LocalDB.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Properties.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IFileHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Igredient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Recipe.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\RecipeIngredient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecipeViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
       <SubType>Code</SubType>

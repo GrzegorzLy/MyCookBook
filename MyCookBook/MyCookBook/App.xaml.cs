@@ -2,13 +2,33 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using MyCookBook.Views;
+using MyCookBook.Data;
+using MyCookBook.Interfaces;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace MyCookBook
 {
 	public partial class App : Application
 	{
-		public App ()
+
+        private static LocalDB localDB;
+
+        public static LocalDB LocalDB
+        {
+            get
+            {
+                if (localDB == null)
+                {
+                    var fileHelper = DependencyService.Get<IFileHelper>();
+                    var filename = fileHelper.GetLocalFilePath("app.db3");
+                    localDB = new LocalDB(filename);
+                }
+
+                return localDB;
+            }
+        }
+
+        public App ()
 		{
 			InitializeComponent();
 
