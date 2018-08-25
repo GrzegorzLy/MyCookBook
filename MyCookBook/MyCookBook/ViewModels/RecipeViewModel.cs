@@ -1,51 +1,61 @@
 ﻿using MyCookBook.Models;
+using MyCookBook.Services;
+using MyCookBook.Views;
+using Prism.Commands;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace MyCookBook.ViewModels
 {
     public class RecipeViewModel : BaseViewModel
     {
-        private Recipe _recipe;
-        private string _message;
 
-        public Recipe Recipe
-        {
-            get { return _recipe; }
-            set
-            {
-                _recipe = value;
-                OnPropertyChanged();
-            }
-        }
-        public string Message
-        {
-            get => _message;
-            set
-            {
-                _message = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public Command SaveRecipe
+        private List<Recipe> recipes;
+        public List<Recipe> Recipes
         {
             get
             {
-                return new Command(() =>
+                return recipes;
+            }
+            set
+            {
+                if (recipes != value)
                 {
-                    Message = $"taddamm {Recipe.Name} ===== {Recipe.Description}";
-                });
+                    recipes = value;
+                    OnPropertyChanged();
+                };
             }
         }
+
+
+        public DelegateCommand<Recipe> RecipeSelectedCommand { get; }
+       
         public RecipeViewModel()
         {
-
-            Recipe = new Recipe() { Name = "Pierogi miesiem", Description = "Domowe pierogi z mięsem " };
-            // new Recipe(){Name = "Pierogi ruskie", Description="Domowe pierogi z serem i ziemniakami "}
-
+            LoadRecipt();         
+            RecipeSelectedCommand = new DelegateCommand<Recipe>(RecipeSelected);
         }
+
+        private async void RecipeSelected(Recipe recipe)
+        {
+            var parameters = new NavigationParameters
+            {
+                { "recipe", recipe }
+            };
+
+            await NavigationService.Push(new ReciptPage(recipe));
+        }
+
+        private async void LoadRecipt()
+        {
+           Recipes = await App.LocalDB.GetItems<Recipe>();           
+        }
+
     }
+    
 }

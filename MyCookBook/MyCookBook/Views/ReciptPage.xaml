@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCookBook.Views.ReciptPage"
+             Title="{Binding Recipe.Name}">
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical">
+            <StackLayout>
+
+
+                <!--obrazek-->
+                <StackLayout>
+                    <Image Source="{Binding Recipe.Image}"
+                     Aspect="AspectFill"
+                     HeightRequest="100"/>
+                </StackLayout>
+
+                <!--slkadniki tekst-->
+                <StackLayout>
+                    <Label Text="Składniki:"/>
+                </StackLayout>
+
+                <!--skadniki lista-->
+                <StackLayout>
+                    <ListView ItemsSource="{Binding Igredients}"
+                    SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell Text="{Binding FullProperty}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+                <!--opis-->
+                <StackLayout>
+                    <Label Text="{Binding Recipe.Description}"/>
+                </StackLayout>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -15,6 +15,7 @@ namespace MyCookBook.Data
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<Recipe>().Wait();
+            database.CreateTableAsync<Igredient>().Wait();
         }
 
         public async Task<List<T>> GetItems<T>() where T : class, new()
@@ -33,13 +34,18 @@ namespace MyCookBook.Data
 
             if (result == 0)
                 result = await database.InsertAsync(item);
-
+            
             return result;
         }
 
         public async Task<int> DeleteItem<T>(T item)
         {
             return await database.DeleteAsync(item);
+        }
+
+        public void Drop<T>() where T : class, new()
+        {
+            database.ExecuteAsync("Truncate table RECIPE");
         }
     }
 }

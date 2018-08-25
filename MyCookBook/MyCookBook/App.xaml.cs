@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 using MyCookBook.Views;
 using MyCookBook.Data;
 using MyCookBook.Interfaces;
+using MyCookBook.Models;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace MyCookBook
@@ -20,7 +21,7 @@ namespace MyCookBook
                 if (localDB == null)
                 {
                     var fileHelper = DependencyService.Get<IFileHelper>();
-                    var filename = fileHelper.GetLocalFilePath("app.db3");
+                    var filename = fileHelper.GetLocalFilePath("app2.db3");
                     localDB = new LocalDB(filename);
                 }
 
@@ -31,8 +32,10 @@ namespace MyCookBook
         public App ()
 		{
 			InitializeComponent();
-
-            MainPage = new MainTabbedPage();
+            
+            AddDataToDb.AddRecipt();
+            
+            MainPage = new NavigationPage(new MainTabbedPage());
 		}
 
 		protected override void OnStart ()

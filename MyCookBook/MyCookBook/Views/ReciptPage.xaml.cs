@@ -1,4 +1,5 @@
-﻿using MyCookBook.ViewModels;
+﻿using MyCookBook.Models;
+using MyCookBook.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,12 @@ using Xamarin.Forms.Xaml;
 namespace MyCookBook.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ListPage : ContentPage
+	public partial class ReciptPage : ContentPage
 	{
-		public ListPage ()
+		public ReciptPage (Recipe recipe)
 		{
 			InitializeComponent ();
-            BindingContext = new RecipeViewModel();
-		}
+            BindingContext = new RecipeDetailsViewModel(recipe);
+        }
 	}
 }

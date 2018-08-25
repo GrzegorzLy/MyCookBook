@@ -10,9 +10,14 @@ namespace MyCookBook.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public int RC_Id { get; set; }
+        public int RecipeId { get; set; }
         public string Name { get; set; }
-        public string Unit { get; set; }
+        public string Unit { get; set; }        
+        public double Quantity { get; set; }
+        [Ignore]
+        public string FullProperty => $"- {Name}: {Quantity} {Unit}";
+
+        
 
     }
 }

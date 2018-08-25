@@ -15,15 +15,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Data\AddDataToDb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ISqlModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\LocalDB.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Properties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IFileHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Igredient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Recipe.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\RecipeIngredient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\NavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecipeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ReciptDetailsViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -34,6 +36,10 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainTabbedPage.xaml.cs">
       <DependentUpon>MainTabbedPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ReciptPage.xaml.cs">
+      <DependentUpon>ReciptPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\SearchPage.xaml.cs">
@@ -61,6 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ReciptPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

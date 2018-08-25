@@ -1,14 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              x:Class="MyCookBook.Views.ListPage"
-             Icon="menu"
+             Icon="menu" 
              >
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+
+    <!-- zdjecie w tle
+    
+    <AbsoluteLayout VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand">
+
+        <Image AbsoluteLayout.LayoutFlags="All" 
+               AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+               Source="salate" //nazwa zdjecia
+               Aspect="AspectFill"
+               Opacity="0.4"/>
+
+        <ScrollView AbsoluteLayout.LayoutFlags="All" 
+                    AbsoluteLayout.LayoutBounds="0, 0, 1, 1">-->
+    <ScrollView>
+        <ListView ItemsSource="{Binding Recipes}"
+                      SeparatorVisibility="None">
+            <ListView.Behaviors>
+                <behaviors:EventToCommandBehavior                 
+                EventArgsParameterPath="Item"
+                EventName="ItemTapped"
+                Command="{Binding RecipeSelectedCommand}" />
+            </ListView.Behaviors>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="250"/>
+                            </Grid.RowDefinitions>
+
+
+                            <Image Source="{Binding Image}"
+                                   Aspect="AspectFill"
+                                   Grid.Column="0"
+                                   Grid.Row="0"
+                                   HeightRequest="250"/>
+
+                            <StackLayout VerticalOptions="StartAndExpand"
+                                   Grid.Column="1"
+                                   Grid.Row="0">
+
+                                <Label Text="{Binding Name}"
+                                   TextColor="DarkSlateGray"
+                                   FontSize="13"
+                                   HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand"
+                                   HeightRequest="150"/>
+
+
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+    <!--</ScrollView>
+    </AbsoluteLayout>-->
+
 </ContentPage>
