@@ -9,7 +9,7 @@ namespace MyCookBook.Data
 {
     public class LocalDB
     {
-        readonly SQLiteAsyncConnection database;
+        protected readonly SQLiteAsyncConnection database;
 
         public LocalDB(string dbPath)
         {
@@ -46,6 +46,11 @@ namespace MyCookBook.Data
         public void Drop<T>() where T : class, new()
         {
             database.ExecuteAsync("Truncate table RECIPE");
+        }
+
+        public async Task<List<Igredient>> GetAllIgredientsByRecipe(Recipe recipe)
+        {
+            return await database.Table<Igredient>().Where(x => x.RecipeId == recipe.Id).ToListAsync();
         }
     }
 }

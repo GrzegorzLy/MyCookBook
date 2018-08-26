@@ -32,12 +32,11 @@ namespace MyCookBook.ViewModels
             }
         }
 
-
         public DelegateCommand<Recipe> RecipeSelectedCommand { get; }
        
         public RecipeViewModel()
         {
-            LoadRecipt();         
+            GetRecipes();         
             RecipeSelectedCommand = new DelegateCommand<Recipe>(RecipeSelected);
         }
 
@@ -51,7 +50,7 @@ namespace MyCookBook.ViewModels
             await NavigationService.Push(new ReciptPage(recipe));
         }
 
-        private async void LoadRecipt()
+        private async void GetRecipes()
         {
            Recipes = await App.LocalDB.GetItems<Recipe>();           
         }

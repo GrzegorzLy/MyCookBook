@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:MyCookBook.Views"
             x:Class="MyCookBook.Views.MainTabbedPage"
-            BarBackgroundColor="AntiqueWhite"
+            BarBackgroundColor="LightGray"           
             NavigationPage.HasNavigationBar="False"
-            >
+            BackgroundColor="GhostWhite">
     
     <local:ListPage/>
     <local:SearchPage/>

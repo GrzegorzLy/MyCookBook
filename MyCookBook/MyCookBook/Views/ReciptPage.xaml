@@ -5,39 +5,36 @@
              Title="{Binding Recipe.Name}">
     <ContentPage.Content>
         <ScrollView Orientation="Vertical">
-            <StackLayout>
-
-
+            <StackLayout
+                BackgroundColor="GhostWhite">
+                    
                 <!--obrazek-->
                 <StackLayout>
                     <Image Source="{Binding Recipe.Image}"
-                     Aspect="AspectFill"
-                     HeightRequest="100"/>
+                        Aspect="AspectFill"
+                        HeightRequest="100"/>
                 </StackLayout>
+                <StackLayout
+                    Margin="10">
 
-                <!--slkadniki tekst-->
-                <StackLayout>
-                    <Label Text="Składniki:"/>
+                    <!--slkadniki tekst-->
+                    <StackLayout>
+                        <Label Text="Składniki:"/>
+                    </StackLayout>
+
+                    <!--skadniki lista-->
+                    <StackLayout>
+                        <Label Text="{Binding ListIgredients}"
+                               TextColor="Gray"
+                               FontSize="Micro"/>
+                    </StackLayout>
+
+                    <!--opis-->
+                    <StackLayout>
+                        <Label Text="{Binding Recipe.Description}"
+                               FontSize="Small"/>
+                    </StackLayout>
                 </StackLayout>
-
-                <!--skadniki lista-->
-                <StackLayout>
-                    <ListView ItemsSource="{Binding Igredients}"
-                    SeparatorVisibility="None">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextCell Text="{Binding FullProperty}"/>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
-
-                <!--opis-->
-                <StackLayout>
-                    <Label Text="{Binding Recipe.Description}"/>
-                </StackLayout>
-
-
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

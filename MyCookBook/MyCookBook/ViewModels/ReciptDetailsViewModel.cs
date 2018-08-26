@@ -1,8 +1,10 @@
 ﻿using MyCookBook.Models;
+using MyCookBook.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MyCookBook.ViewModels
 {
@@ -18,30 +20,28 @@ namespace MyCookBook.ViewModels
                 OnPropertyChanged();
             }
         }
-        private List<Igredient> igredients;
-        public List<Igredient> Igredients
+        public string ListIgredients
         {
-            get { return igredients; }
+            get => listIgredients;
             set
             {
-                if (igredients != value)
-                {
-                    igredients = value;
-                    OnPropertyChanged();
-                };
+                listIgredients = value;
+                OnPropertyChanged();
             }
+
         }
+        private string listIgredients;
+
+        private void getIgredients()
+        {
+            var list = Task.Run(() => App.LocalDB.GetAllIgredientsByRecipe(Recipe)).Result;
+            ListIgredients = list.ConverTotextList();
+        }
+
         public RecipeDetailsViewModel(Recipe recipe)
         {
             this.recipe = recipe;
-            Igredients = new List<Igredient>
-            {
-                new Igredient(){ Name = "Maka", Quantity= 200, Unit = "dg"},
-                new Igredient(){ Name = "Jajko", Quantity= 2, Unit = "szt"},
-                new Igredient(){ Name = "Mieso mielone", Quantity= 500, Unit = "dg"},
-                };
-
-            //dodac lisatview
+            getIgredients();
         }
     }
 }

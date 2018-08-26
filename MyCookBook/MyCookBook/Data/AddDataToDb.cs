@@ -60,7 +60,21 @@ namespace MyCookBook.Data
                     Image= "img4"
                 },                
             };
-                recipes.ForEach(r => App.LocalDB.SaveItem(r));
+
+            List<Igredient> igredients = new List<Igredient>()
+            {
+                new Igredient(){ Name = "Mąka Pszenna", Quantity= 200, Unit = "g", Id =1, RecipeId = 1},
+                new Igredient(){ Name = "Wrząca woda", Quantity= 125, Unit = "ml", Id =2, RecipeId = 1},
+                new Igredient(){ Name = "Jajko", Quantity= 1, Unit = "szt", Id =3, RecipeId = 1},
+                new Igredient(){ Name = "Masło", Quantity= 25, Unit = "g", Id =4, RecipeId = 1},
+                new Igredient(){ Name = "Ser Biały", Quantity= 500, Unit = "g", Id =5, RecipeId = 1},
+                new Igredient(){ Name = "Ziemniaki", Quantity= 500, Unit = "g", Id =6, RecipeId = 1},
+                new Igredient(){ Name = "Sól", Quantity= 2, Unit = "g", Id =7, RecipeId = 1},
+
+            };
+
+            recipes.ForEach(r => App.LocalDB.SaveItem(r));
+            igredients.ForEach(i => App.LocalDB.SaveItem(i));
         }
     }
 }
