@@ -26,7 +26,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\NavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\RecipeViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ReciptSelectedBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ReciptDetailsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SearchViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -23,6 +23,11 @@ namespace MyCookBook.Data
             return await database.Table<T>().ToListAsync();
         }
 
+        public async Task<List<Recipe>> GeRecipeByText(string text)
+        {
+            return await database.Table<Recipe>().Where(x => x.Name.ToLower().Contains(text.ToLower())).ToListAsync();
+        }
+
         public async Task<T> GetItemByID<T>(int id) where T : class, ISqlModel, new()
         {
             return await database.Table<T>().Where(x => x.Id == id).FirstOrDefaultAsync();

@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace MyCookBook.ViewModels
 {
-    public class RecipeViewModel : BaseViewModel
+    public class RecipeViewModel : RecipSelectedBase
     {
 
         private List<Recipe> recipes;
@@ -32,25 +32,12 @@ namespace MyCookBook.ViewModels
             }
         }
 
-        public DelegateCommand<Recipe> RecipeSelectedCommand { get; }
-       
-        public RecipeViewModel()
+        public RecipeViewModel() : base()
         {
-            GetRecipes();         
-            RecipeSelectedCommand = new DelegateCommand<Recipe>(RecipeSelected);
+            LoadRecipt();  
         }
 
-        private async void RecipeSelected(Recipe recipe)
-        {
-            var parameters = new NavigationParameters
-            {
-                { "recipe", recipe }
-            };
-
-            await NavigationService.Push(new ReciptPage(recipe));
-        }
-
-        private async void GetRecipes()
+        private async void LoadRecipt()
         {
            Recipes = await App.LocalDB.GetItems<Recipe>();           
         }
