@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace MyCookBook.ViewModels
 {
-    class SearchViewModel : RecipSelectedBase
+    class SearchViewModel : RecipeSelectedBase
     {
         private string enteredText;
         public string EnteredText

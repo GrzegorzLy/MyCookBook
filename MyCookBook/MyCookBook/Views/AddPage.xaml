@@ -2,12 +2,89 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyCookBook.Views.AddPage"
-             Icon="add">
+             Icon="add"            
+             Padding="10">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="70" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Entry x:Name="Title"
+                           Placeholder="Tytuł"
+                           Grid.Row="0" 
+                           Grid.ColumnSpan="4"
+                           FontSize="Medium"/>
+                    <Image x:Name="image" Source="addImage" 
+                           Grid.Row="1" 
+                           Grid.ColumnSpan="4" 
+                           Aspect="AspectFill"/>
+                    <Button x:Name="takePhoto" Text="Zrób zdjęcie" 
+                            Grid.Row="2" 
+                            Grid.ColumnSpan="2"
+                            FontSize="Micro"                            
+                            HeightRequest="50" 
+                            WidthRequest="120"
+                            BackgroundColor="OrangeRed"
+                            HorizontalOptions="Center"/>
+                    <Button x:Name="pickPhoto" Text="Przeglądaj album" 
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Grid.ColumnSpan="2"                            
+                            FontSize="Micro" 
+                            HeightRequest="50" 
+                            WidthRequest="120"
+                            BackgroundColor="OrangeRed"
+                            HorizontalOptions="Fill"/>
+                    <Entry x:Name="igredientName" 
+                            Placeholder="Składnik" 
+                            Grid.Row="3"
+                            Grid.Column="0" 
+                            WidthRequest="70"
+                            FontSize ="Micro"/>
+                    <Entry x:Name="igredientQuantity"
+                            Placeholder="Ilość" 
+                            Grid.Row="3"
+                            Grid.Column="1" 
+                            WidthRequest="40"
+                            FontSize ="Micro"
+                            Keyboard="Numeric"/>
+                    <Picker x:Name="IgredientUnit" SelectedIndex="{Binding Unit}" 
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            Title="Miara"
+                            FontSize="Micro"
+                            WidthRequest="40">
+                        <Picker.Items>
+                            <x:String>kg</x:String>
+                            <x:String>dg</x:String>
+                            <x:String>g</x:String>
+                            <x:String>l</x:String>
+                            <x:String>ml</x:String>
+                            <x:String>szt</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Button x:Name="addIgredient" 
+                            Image="ok"
+                            Grid.Row="3"
+                            Grid.Column="3"
+                            HeightRequest="30"
+                            WidthRequest="30"
+                            HorizontalOptions="CenterAndExpand"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

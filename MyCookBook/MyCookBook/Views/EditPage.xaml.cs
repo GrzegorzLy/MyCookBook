@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace MyCookBook.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MainTabbedPage : TabbedPage
-    {
-		public MainTabbedPage ()
+	public partial class EditPage : ContentPage
+	{
+		public EditPage ()
 		{
 			InitializeComponent ();
 		}

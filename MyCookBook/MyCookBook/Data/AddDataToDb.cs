@@ -8,7 +8,7 @@ namespace MyCookBook.Data
 {
     public static class AddDataToDb
     {
-        public  static void AddRecipt()
+        public  static void AddRecipe()
         {
             List<Recipe> recipes = new List<Recipe>()
             {
@@ -73,8 +73,8 @@ namespace MyCookBook.Data
 
             };
 
-            recipes.ForEach(r => App.LocalDB.SaveItem(r));
-            igredients.ForEach(i => App.LocalDB.SaveItem(i));
+            recipes.ForEach(async r => await App.LocalDB.SaveItem(r));
+            igredients.ForEach(async i => await App.LocalDB.SaveItem(i));
         }
     }
 }

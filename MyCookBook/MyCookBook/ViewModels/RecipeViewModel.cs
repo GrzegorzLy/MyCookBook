@@ -12,21 +12,21 @@ using Xamarin.Forms;
 
 namespace MyCookBook.ViewModels
 {
-    public class RecipeViewModel : RecipSelectedBase
+    public class RecipeViewModel : RecipeSelectedBase
     {
 
-        private List<Recipe> recipes;
-        public List<Recipe> Recipes
+        private List<Recipe> recipe;
+        public List<Recipe> Recipe
         {
             get
             {
-                return recipes;
+                return recipe;
             }
             set
             {
-                if (recipes != value)
+                if (recipe != value)
                 {
-                    recipes = value;
+                    recipe = value;
                     OnPropertyChanged();
                 };
             }
@@ -34,12 +34,12 @@ namespace MyCookBook.ViewModels
 
         public RecipeViewModel() : base()
         {
-            LoadRecipt();  
+            LoadRecipe();  
         }
 
-        private async void LoadRecipt()
+        private async void LoadRecipe()
         {
-           Recipes = await App.LocalDB.GetItems<Recipe>();           
+           Recipe = await App.LocalDB.GetItems<Recipe>();           
         }
 
     }

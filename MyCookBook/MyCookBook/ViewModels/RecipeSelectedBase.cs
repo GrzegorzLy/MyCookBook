@@ -9,11 +9,11 @@ using System.Text;
 
 namespace MyCookBook.ViewModels
 {
-    public class RecipSelectedBase : BaseViewModel
+    public class RecipeSelectedBase : BaseViewModel
     {
         public DelegateCommand<Recipe> RecipeSelectedCommand { get; }
 
-        public RecipSelectedBase()
+        public RecipeSelectedBase()
         {
             RecipeSelectedCommand = new DelegateCommand<Recipe>(RecipeSelected);
 
@@ -23,7 +23,7 @@ namespace MyCookBook.ViewModels
         {
             var parameters = new NavigationParameters
             {
-                { "recipe", recipe }
+                { "recipe", recipe}
             };
             await NavigationService.Push(new ReciptPage(recipe));
 

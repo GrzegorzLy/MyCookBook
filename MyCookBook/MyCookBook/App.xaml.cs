@@ -33,7 +33,7 @@ namespace MyCookBook
 		{
 			InitializeComponent();
             
-            AddDataToDb.AddRecipt();
+            AddDataToDb.AddRecipe();
             
             MainPage = new NavigationPage(new MainTabbedPage());
 		}

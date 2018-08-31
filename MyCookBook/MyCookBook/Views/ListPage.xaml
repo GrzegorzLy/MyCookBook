@@ -9,7 +9,7 @@
     <ScrollView Orientation="Vertical">
         <StackLayout
             Margin="10">
-            <ListView ItemsSource="{Binding Recipes}">
+            <ListView ItemsSource="{Binding Recipe}">
                 <ListView.Behaviors>
                     <behaviors:EventToCommandBehavior                 
                         EventArgsParameterPath="Item"
@@ -22,7 +22,7 @@
                         <ImageCell 
                             ImageSource="{Binding Image}"
                             Text="{Binding Name}"
-                            TextColor="DarkSlateGray"                                                      
+                            TextColor="DarkSlateGray" 
                          />
                     </DataTemplate>
                 </ListView.ItemTemplate>

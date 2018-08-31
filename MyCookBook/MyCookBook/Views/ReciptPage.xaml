@@ -16,14 +16,9 @@
                 </StackLayout>
                 <StackLayout
                     Margin="10">
-
-                    <!--slkadniki tekst-->
-                    <StackLayout>
-                        <Label Text="Składniki:"/>
-                    </StackLayout>
-
                     <!--skadniki lista-->
                     <StackLayout>
+                        <Label Text="Składniki:"/>
                         <Label Text="{Binding ListIgredients}"
                                TextColor="Gray"
                                FontSize="Micro"/>
@@ -31,8 +26,10 @@
 
                     <!--opis-->
                     <StackLayout>
+                        <Label Text="Opis:"/>
                         <Label Text="{Binding Recipe.Description}"
-                               FontSize="Small"/>
+                               TextColor="Gray"
+                               FontSize="Micro"/>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
