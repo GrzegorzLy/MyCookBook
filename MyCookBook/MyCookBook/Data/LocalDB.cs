@@ -33,14 +33,14 @@ namespace MyCookBook.Data
             return await database.Table<T>().Where(x => x.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<int> SaveItem<T>(T item)
+        public async Task<T> SaveItem<T>(T item)
         {
             var result = await database.UpdateAsync(item);
 
             if (result == 0)
                 result = await database.InsertAsync(item);
             
-            return result;
+            return item;
         }
 
         public async Task<int> DeleteItem<T>(T item)

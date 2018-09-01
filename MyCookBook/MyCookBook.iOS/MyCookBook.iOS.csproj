@@ -188,6 +188,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\ok.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cancel.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\MyCookBook\MyCookBook.projitems" Label="Shared" />
 </Project>

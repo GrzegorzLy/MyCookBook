@@ -39,7 +39,7 @@ namespace MyCookBook.ViewModels
 
         private async void LoadRecipe()
         {
-           Recipe = await App.LocalDB.GetItems<Recipe>();           
+           Recipe = await App.LocalDB.GetItems<Recipe>();         
         }
 
     }

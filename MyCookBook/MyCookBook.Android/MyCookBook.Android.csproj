@@ -132,6 +132,9 @@
     <AndroidResource Include="Resources\drawable\addImage.jpeg" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable\ok.png" />
   </ItemGroup>
   <Import Project="..\MyCookBook\MyCookBook.projitems" Label="Shared" />
